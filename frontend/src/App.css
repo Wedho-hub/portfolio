@@ -1,0 +1,53 @@
+/* Custom styles for the portfolio app */
+
+body {
+  background-color: #f8f9fa;
+  color: #222;
+}
+
+.navbar-brand {
+  letter-spacing: 2px;
+  font-size: 1.5rem;
+}
+
+.btn-primary, .btn-outline-primary {
+  border-radius: 30px;
+  padding: 0.5rem 1.5rem;
+  font-weight: 500;
+}
+
+.card {
+  border-radius: 18px;
+  transition: box-shadow 0.2s;
+}
+.card:hover {
+  box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+}
+
+.form-control:focus {
+  border-color: #646cff;
+  box-shadow: 0 0 0 0.2rem rgba(100,108,255,.15);
+}
+
+.footer {
+  font-size: 0.95rem;
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  .navbar-brand {
+    font-size: 1.2rem;
+  }
+}
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo {
+.read-the-docs {
+  color: #888;
+}
+}

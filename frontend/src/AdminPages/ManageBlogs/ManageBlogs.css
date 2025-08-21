@@ -1,0 +1,9 @@
+/* ManageBlogs.css */
+.table {
+	border-radius: 12px;
+	overflow: hidden;
+}
+.btn {
+	border-radius: 30px;
+	font-weight: 500;
+}

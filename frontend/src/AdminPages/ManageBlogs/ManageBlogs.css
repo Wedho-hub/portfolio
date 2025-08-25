@@ -1,3 +1,17 @@
+@media (max-width: 900px) {
+	.table {
+		font-size: 0.95rem;
+	}
+}
+@media (max-width: 600px) {
+	.table {
+		font-size: 0.9rem;
+	}
+	.btn {
+		padding: 0.3rem 0.7rem;
+		font-size: 0.95rem;
+	}
+}
 /* ManageBlogs.css */
 .table {
 	border-radius: 12px;

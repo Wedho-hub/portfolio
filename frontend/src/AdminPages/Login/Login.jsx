@@ -1,24 +1,41 @@
 // Login.jsx
 // Admin login page
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
 	const [form, setForm] = useState({ username: '', password: '' });
 	const [error, setError] = useState(null);
+	const [loading, setLoading] = useState(false);
+	const navigate = useNavigate();
 
 	const handleChange = e => {
 		setForm({ ...form, [e.target.name]: e.target.value });
 	};
 
-	const handleSubmit = e => {
+	// Handle admin login
+	const handleSubmit = async e => {
 		e.preventDefault();
-		// TODO: Implement real authentication logic
-		if (form.username === 'admin' && form.password === 'password') {
-			setError(null);
-			// Redirect to dashboard or set auth state
-		} else {
-			setError('Invalid credentials');
+		setError(null);
+		setLoading(true);
+		try {
+			const res = await fetch('/api/admin/login', {
+				method: 'POST',
+				headers: { 'Content-Type': 'application/json' },
+				body: JSON.stringify(form),
+			});
+			const data = await res.json();
+			if (res.ok && data.token) {
+				localStorage.setItem('token', data.token);
+				setError(null);
+				navigate('/admin/dashboard');
+			} else {
+				setError(data.error || 'Login failed');
+			}
+		} catch {
+			setError('Network error');
 		}
+		setLoading(false);
 	};
 
 	return (
@@ -36,7 +53,9 @@ const Login = () => {
 							<label htmlFor="password" className="form-label">Password</label>
 							<input type="password" className="form-control" id="password" name="password" value={form.password} onChange={handleChange} required />
 						</div>
-						<button type="submit" className="btn btn-primary w-100">Login</button>
+						<button type="submit" className="btn btn-primary w-100" disabled={loading}>
+							{loading ? 'Logging in...' : 'Login'}
+						</button>
 					</form>
 				</div>
 			</div>

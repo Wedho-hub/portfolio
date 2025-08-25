@@ -1,0 +1,32 @@
+
+/* Harmonized navlink styles for gradient navbar */
+.custom-navbar .nav-link.nav-link-custom {
+    color: #fff !important;
+    font-weight: 900 !important;
+    font-size: 1.35rem !important;
+    margin-right: 1.1rem;
+    letter-spacing: 0.5px;
+    transition: color 0.2s, background 0.2s;
+    border-radius: 22px;
+    padding: 0.45rem 1.2rem;
+}
+.nav-link-custom:hover, .nav-link-custom:focus {
+    color: #ffeb3b !important;
+    background: rgba(192, 191, 191, 0.08);
+    text-decoration: none;
+}
+
+.navbar-collapse {
+    background: transparent !important;
+    font-size: 1.2rem;
+    font-weight: 900;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+.logo img {
+    max-width: 100%;
+    height: auto;
+}

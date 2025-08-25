@@ -2,7 +2,7 @@
 // Main app layout with routing, Navbar, and Footer
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Navbar from './components/Navbar/Navbar';
+import AppNavbar from './components/Navbar/Navbar';
 import Footer from './components/Footer/Footer';
 import Home from './pages/Home/Home';
 import Projects from './pages/Projects/Projects';
@@ -11,13 +11,20 @@ import Blogs from './pages/Blogs/Blogs';
 import BlogDetails from './pages/BlogDetails/BlogDetails';
 import Contact from './pages/Contact/Contact';
 import About from './pages/About/About';
+// Admin pages
+import Dashboard from './AdminPages/Dashboard/Dashboard';
+import ManageBlogs from './AdminPages/ManageBlogs/ManageBlogs';
+import ManageProjects from './AdminPages/ManageProjects/ManageProjects';
+import ManageMessages from './AdminPages/ManageMessages/ManageMessages';
+import Login from './AdminPages/Login/Login';
+import ProtectedRoute from './components/ProtectedRoute';
 
 // Main app layout
 function App() {
   return (
     <Router>
       <div className="d-flex flex-column min-vh-100">
-        <Navbar />
+        <AppNavbar />
         <main className="flex-grow-1">
           <Routes>
             <Route path="/" element={<Home />} />
@@ -27,7 +34,20 @@ function App() {
             <Route path="/blogs/:id" element={<BlogDetails />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
-            {/* Add more routes as needed */}
+            {/* Admin routes */}
+            <Route path="/admin/login" element={<Login />} />
+            <Route path="/admin/dashboard" element={
+              <ProtectedRoute><Dashboard /></ProtectedRoute>
+            } />
+            <Route path="/admin/blogs" element={
+              <ProtectedRoute><ManageBlogs /></ProtectedRoute>
+            } />
+            <Route path="/admin/projects" element={
+              <ProtectedRoute><ManageProjects /></ProtectedRoute>
+            } />
+            <Route path="/admin/messages" element={
+              <ProtectedRoute><ManageMessages /></ProtectedRoute>
+            } />
           </Routes>
         </main>
         <Footer />

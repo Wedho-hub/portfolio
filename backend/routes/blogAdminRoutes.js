@@ -3,6 +3,7 @@ import authMiddleware from '../middleware/authMiddleware.js';
 import { validateBody } from '../middleware/validateRequest.js';
 import { z } from 'zod';
 import {
+  getBlogs,
   createBlog,
   updateBlog,
   deleteBlog
@@ -12,6 +13,7 @@ import {
 const blogSchema = z.object({
   title: z.string().min(1),
   slug: z.string().min(1),
+  summary: z.string().optional(),
   content: z.string().min(1),
   author: z.string().optional(),
   image: z.string().optional()
@@ -19,7 +21,9 @@ const blogSchema = z.object({
 
 const router = express.Router();
 
-// All admin blog routes are protected and validated
+
+// All admin blog routes are protected
+router.get('/', authMiddleware, getBlogs); // Fetch all blogs (admin)
 router.post('/', authMiddleware, validateBody(blogSchema), createBlog);
 router.put('/:id', authMiddleware, validateBody(blogSchema), updateBlog);
 router.delete('/:id', authMiddleware, deleteBlog);

@@ -1,3 +1,13 @@
+@media (max-width: 600px) {
+	.card {
+		padding: 0.5rem;
+		font-size: 0.95rem;
+	}
+	.btn {
+		padding: 0.3rem 0.7rem;
+		font-size: 0.95rem;
+	}
+}
 /* Login.css */
 .card {
 	border-radius: 18px;

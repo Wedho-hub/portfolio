@@ -1,3 +1,14 @@
+@media (max-width: 900px) {
+	.card {
+		margin-bottom: 1.5rem;
+	}
+}
+@media (max-width: 600px) {
+	.card {
+		padding: 0.5rem;
+		font-size: 0.95rem;
+	}
+}
 /* Dashboard.css */
 .card {
 	border-radius: 18px;

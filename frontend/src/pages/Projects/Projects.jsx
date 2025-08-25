@@ -17,15 +17,15 @@ const Projects = () => {
 	return (
 		<section className="container py-5">
 			<h2 className="mb-4 fw-bold text-center">Projects</h2>
-			<div className="row">
-				{projects.length === 0 ? (
-					<p className="text-center">No projects found.</p>
-				) : (
-					projects.map(project => (
+			{projects.length === 0 ? (
+				<p className="text-center">No projects found.</p>
+			) : (
+				<div className="row g-4 justify-content-center">
+					{projects.map(project => (
 						<ProjectCard key={project._id} project={project} />
-					))
-				)}
-			</div>
+					))}
+				</div>
+			)}
 		</section>
 	);
 };

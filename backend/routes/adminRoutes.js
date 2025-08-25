@@ -1,8 +1,12 @@
 import express from 'express';
 import authMiddleware from '../middleware/authMiddleware.js';
-import { getAllUsers, deleteUser, getStats } from '../controllers/adminController.js';
+import { getAllUsers, deleteUser, getStats, adminLogin } from '../controllers/adminController.js';
 
 const router = express.Router();
+
+
+// Admin login route (unprotected)
+router.post('/login', adminLogin);
 
 // Protect all admin routes with authMiddleware
 router.use(authMiddleware);

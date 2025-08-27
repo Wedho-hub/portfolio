@@ -3,7 +3,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Navbar, Nav, Container, NavDropdown } from 'react-bootstrap';
+
 import logo from '../../assets/logo.svg';
+import './Navbar.css';
 
 
 import { useNavigate } from 'react-router-dom';

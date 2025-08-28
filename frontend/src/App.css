@@ -1,16 +1,21 @@
 /* Custom styles for the portfolio app */
 
 
+
 body {
   background-color: #f8f9fa;
   color: #222;
   min-height: 100vh;
   width: 100%;
+  font-size: clamp(1rem, 2vw, 1.18rem);
+  line-height: 1.7;
+  letter-spacing: 0.01em;
 }
+
 
 .navbar-brand {
   letter-spacing: 2px;
-  font-size: 1.5rem;
+  font-size: clamp(1.2rem, 3vw, 1.7rem);
 }
 
 .btn-primary, .btn-outline-primary {
@@ -19,9 +24,13 @@ body {
   font-weight: 500;
 }
 
+
 .card {
   border-radius: 18px;
   transition: box-shadow 0.2s;
+  font-size: clamp(0.98rem, 1.7vw, 1.08rem);
+  padding: 1.1rem 0.7rem 1.3rem 0.7rem;
+  margin-bottom: 2.2rem;
 }
 .card:hover {
   box-shadow: 0 8px 32px rgba(0,0,0,0.12);
@@ -50,11 +59,14 @@ body {
   text-align: center;
 }
 
+
 section, .container {
   width: 100%;
   max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
+  padding-top: clamp(1.2rem, 4vw, 3.5rem);
+  padding-bottom: clamp(1.2rem, 4vw, 3.5rem);
 }
 
 
@@ -89,6 +101,8 @@ section, .container {
   section, .container {
     padding-left: 0.5rem !important;
     padding-right: 0.5rem !important;
+    padding-top: clamp(0.7rem, 2vw, 1.5rem);
+    padding-bottom: clamp(0.7rem, 2vw, 1.5rem);
   }
   .row.g-4, .row.g-3, .row.g-2 {
     gap: 1.2rem 0 !important;
@@ -97,7 +111,8 @@ section, .container {
     margin-bottom: 1.2rem;
     min-width: 90vw;
     max-width: 98vw;
-    font-size: 1rem;
+    font-size: clamp(0.95rem, 2vw, 1.02rem);
+    padding: 0.7rem 0.3rem 1.1rem 0.3rem;
   }
   .card-img-top {
     height: 160px !important;
@@ -117,21 +132,21 @@ section, .container {
 @media (max-width: 575.98px) {
   /* Extra small screens: font, nav, spacing */
   html, body {
-    font-size: 15px;
+    font-size: 14px;
   }
   .navbar-brand {
-    font-size: 1rem;
+    font-size: 0.98rem;
   }
   .custom-navbar .navbar-nav .nav-link {
-    font-size: 1rem !important;
+    font-size: 0.98rem !important;
     padding: 0.7rem 0.8rem !important;
   }
   .card {
-    font-size: 0.98rem;
-    padding: 0.5rem;
+    font-size: 0.95rem;
+    padding: 0.4rem;
   }
   .btn, .btn-lg, .btn-primary, .btn-outline-primary {
-    font-size: 0.98rem;
+    font-size: 0.95rem;
     padding: 0.6rem 0.8rem;
   }
 }

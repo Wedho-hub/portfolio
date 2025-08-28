@@ -1,14 +1,16 @@
 // src/data/projects.js
 // Sample project data for portfolio
 
+import portfolioPic from '../assets/portfolioPic.png';
+
 const projects = [
   {
     title: 'Portfolio Website',
     description: 'A modern, responsive portfolio site built with React, Vite, and Bootstrap. Features admin dashboard, blog, and contact form.',
     tech: ['React', 'Vite', 'Bootstrap', 'Node.js', 'MongoDB'],
-    image: 'https://placehold.co/400x250?text=Portfolio',
-    demo: 'https://your-portfolio-demo.com',
-    github: 'https://github.com/yourusername/portfolio',
+    image: portfolioPic,
+    demo: 'https://wedhoportfolio.netlify.app',
+    github: 'https://github.com/Wedho-hub/portfolio',
   },
   {
     title: 'E-Commerce Store',

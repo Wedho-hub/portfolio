@@ -12,6 +12,7 @@ import viteLogo from '../../assets/vite.svg';
 // About.jsx
 // About me page using Bootstrap
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const About = () => {
 	return (
@@ -38,8 +39,8 @@ const About = () => {
 							to freelance, remote, and on-site opportunities.
 						</p>
 						<div className="text-center text-md-start mt-4">
-							<a href="/projects" className="btn btn-primary me-2">See My Work</a>
-							<a href="/contact" className="btn btn-outline-secondary">Contact Me</a>
+							<Link to="/projects" className="btn btn-primary me-2 about-btn">See My Work</Link>
+							<Link to="/contact" className="btn btn-outline-secondary about-btn">Contact Me</Link>
 						</div>
 					</div>
 				</div>

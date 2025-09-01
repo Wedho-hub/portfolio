@@ -29,7 +29,13 @@ const About = () => {
 					<div className="col-12 col-md-8">
 						<h2 className="mb-4 fw-bold text-center text-md-start">About Me</h2>
 						<p className="lead text-center text-md-start">
-							I'm Wellington Dhliwayo, a full-stack web developer (MERN) who transitioned from engineering and construction into tech. My background as a fitter, boilermaker, and supervisor taught me precision, problem-solving, and teamwork — skills I now apply to building scalable, user-friendly web applications. Trained through the HyperionDev Full-Stack Bootcamp, I combine development expertise with digital marketing insight to create websites that perform and grow. I'm currently open to freelance, remote, and on-site opportunities.
+							I'm Wellington Dhliwayo, a full-stack web developer (MERN) who transitioned from 
+							engineering and construction into tech. My background as a fitter, boilermaker, 
+							and supervisor taught me precision, problem-solving, and teamwork — skills I now
+							apply to building scalable, user-friendly web applications. Trained through the 
+							HyperionDev Full-Stack Bootcamp, I combine development expertise with digital 
+							marketing insight to create websites that perform and grow. I'm currently open 
+							to freelance, remote, and on-site opportunities.
 						</p>
 						<div className="text-center text-md-start mt-4">
 							<a href="/projects" className="btn btn-primary me-2">See My Work</a>

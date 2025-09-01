@@ -19,10 +19,16 @@ import ManageMessages from './AdminPages/ManageMessages/ManageMessages';
 import Login from './AdminPages/Login/Login';
 import ProtectedRoute from './components/ProtectedRoute';
 
-// Main app layout
+
 function App() {
+  // Dynamically set basename for BrowserRouter (for subdirectory deploys)
+  const getBaseName = () => {
+    // Use VITE_PUBLIC_URL or fallback to "/"
+    return import.meta.env.BASE_URL || '/';
+  };
+
   return (
-    <Router>
+    <Router basename={getBaseName()}>
       <div className="d-flex flex-column min-vh-100">
         <AppNavbar />
         <main className="flex-grow-1">

@@ -1,24 +1,15 @@
 // ProjectDetails.jsx
 // Shows details for a single project
-import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import React from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
+import projects from '../../data/projects';
 
 const ProjectDetails = () => {
 	const { id } = useParams();
-	const [project, setProject] = useState(null);
-	const [loading, setLoading] = useState(true);
+	const navigate = useNavigate();
+	// Find project by index (assuming /projects/:id is the array index)
+	const project = projects[parseInt(id, 10)];
 
-	useEffect(() => {
-		fetch(`/api/projects/${id}`)
-			.then(res => res.json())
-			.then(data => {
-				setProject(data);
-				setLoading(false);
-			})
-			.catch(() => setLoading(false));
-	}, [id]);
-
-	if (loading) return <div className="container py-5 text-center">Loading...</div>;
 	if (!project) return <div className="container py-5 text-center">Project not found.</div>;
 
 	return (
@@ -30,11 +21,24 @@ const ProjectDetails = () => {
 					)}
 					<h2 className="fw-bold mb-3">{project.title}</h2>
 					<p className="lead">{project.description}</p>
-					{project.link && (
-						<a href={project.link} className="btn btn-primary mt-3" target="_blank" rel="noopener noreferrer">
-							View Live
-						</a>
+					{project.tech && (
+						<div className="mb-3">
+							<strong>Tech Stack:</strong> <span className="text-muted">{project.tech.join(', ')}</span>
+						</div>
 					)}
+					<div className="d-flex gap-3 mt-4">
+						{project.github && (
+							<a href={project.github} className="btn btn-outline-dark" target="_blank" rel="noopener noreferrer">
+								<i className="bi bi-github"></i> GitHub
+							</a>
+						)}
+						{project.demo && (
+							<a href={project.demo} className="btn btn-primary" target="_blank" rel="noopener noreferrer">
+								<i className="bi bi-box-arrow-up-right"></i> Live Demo
+							</a>
+						)}
+						<button className="btn btn-secondary" onClick={() => navigate(-1)}>Back</button>
+					</div>
 				</div>
 			</div>
 		</section>

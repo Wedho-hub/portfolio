@@ -2,6 +2,7 @@
 // Sample project data for portfolio
 
 import portfolioPic from '../assets/portfolioPic.png';
+import churchWebPic from '../assets/churchWebPic.png';
 
 const projects = [
   {
@@ -13,12 +14,12 @@ const projects = [
     github: 'https://github.com/Wedho-hub/portfolio',
   },
   {
-    title: 'E-Commerce Store',
-    description: 'Full-stack e-commerce platform with product management, cart, and secure checkout.',
-    tech: ['React', 'Redux', 'Node.js', 'Express', 'MongoDB'],
-    image: 'https://placehold.co/400x250?text=E-Commerce',
-    demo: 'https://your-ecommerce-demo.com',
-    github: 'https://github.com/yourusername/ecommerce',
+    title: 'Church Website',
+    description: 'MERN-powered church platform with admin tools, blogs, and media sharing.',
+    tech: ['React', 'Bootstrap', 'Redux', 'Node.js', 'Express', 'MongoDB'],
+    image: churchWebPic,
+    demo: 'https://inkosiyezasdachurch.netlify.app',
+    github: 'https://github.com/Wedho-hub/churchSite',
   },
   {
     title: 'Blog Platform',

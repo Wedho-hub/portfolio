@@ -22,16 +22,16 @@ const ProjectCard = ({ project }) => {
 						</div>
 					)}
 					<div className="mt-auto d-flex gap-2">
-						{project.githubUrl && (
-							<a href={project.githubUrl} className="btn btn-outline-dark btn-sm" target="_blank" rel="noopener noreferrer">
-								<i className="bi bi-github"></i> GitHub
-							</a>
-						)}
-						{project.liveUrl && (
-							<a href={project.liveUrl} className="btn btn-primary btn-sm" target="_blank" rel="noopener noreferrer">
-								<i className="bi bi-box-arrow-up-right"></i> Live
-							</a>
-						)}
+									{project.githubUrl && (
+										<a href={project.githubUrl} className="btn btn-outline-dark btn-sm" target="_blank" rel="noopener noreferrer">
+											<i className="bi bi-github"></i> GitHub
+										</a>
+									)}
+									{project.liveUrl && (
+										<a href={project.liveUrl} className="btn btn-primary btn-sm" target="_blank" rel="noopener noreferrer">
+											<i className="bi bi-box-arrow-up-right"></i> Live Demo
+										</a>
+									)}
 					</div>
 				</div>
 			</div>

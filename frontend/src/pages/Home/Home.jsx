@@ -1,6 +1,7 @@
 // Home.jsx
 // Main landing page for the portfolio
 import React, { useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import profilePic from '../../assets/profilePic.jpg';
 
 const statsData = [
@@ -49,8 +50,8 @@ const Home = () => {
 							<p className="lead mb-4">
 								I build modern, user-friendly websites and applications that help brands grow online.
 							</p>
-							<a href="/projects" className="btn btn-primary btn-lg me-2">View Projects</a>
-							<a href="/contact" className="btn btn-outline-secondary btn-lg">Contact Me</a>
+							<Link to="/projects" className="btn btn-primary btn-lg me-2">View Projects</Link>
+							<Link to="/contact" className="btn btn-outline-secondary btn-lg">Contact Me</Link>
 
 							{/* Animated Stats */}
 							<div className="row mt-5 g-3 justify-content-center">

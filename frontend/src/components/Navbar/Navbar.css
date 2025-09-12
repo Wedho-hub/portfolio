@@ -1,10 +1,17 @@
 
 /* Harmonized navlink styles for gradient navbar */
 
+
+/* Modern Navbar Theme */
+.custom-navbar {
+    background: linear-gradient(90deg, #181c24 60%, #ffb347 100%) !important;
+    color: #f3f6fa !important;
+    border-bottom: 2.5px solid #ffb347;
+}
 .custom-navbar .nav-link.nav-link-custom {
-    color: #1a1a1a !important;
+    color: #f3f6fa !important;
     font-weight: 900 !important;
-    font-size: 1.55rem !important;
+    font-size: 1.25rem !important;
     margin-right: 1.2rem;
     letter-spacing: 1px;
     transition: color 0.18s, background 0.18s, box-shadow 0.18s, transform 0.18s;
@@ -13,20 +20,28 @@
     position: relative;
     outline: none;
 }
-
 .custom-navbar .nav-link.nav-link-custom:active {
-    color: #ffd600 !important;
-    background: rgba(255, 255, 255, 0.13);
-    box-shadow: 0 2px 12px 0 rgba(57,73,171,0.12);
+    color: #ffb347 !important;
+    background: rgba(255, 179, 71, 0.13);
+    box-shadow: 0 2px 12px 0 rgba(255,179,71,0.12);
     transform: scale(0.97);
 }
-
 .nav-link-custom:hover, .nav-link-custom:focus {
-    color: #ffeb3b !important;
-    background: rgba(255, 255, 255, 0.13);
+    color: #ff5e62 !important;
+    background: rgba(255, 179, 71, 0.13);
     text-decoration: none;
-    box-shadow: 0 4px 18px 0 rgba(57,73,171,0.18);
+    box-shadow: 0 4px 18px 0 rgba(255,94,98,0.18);
     transform: translateY(-2px) scale(1.04);
+}
+.navbar-brand-gradient {
+    background: linear-gradient(90deg, #ff5e62 0%, #ffb347 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 700;
+    font-size: 1.7rem;
+    letter-spacing: 2px;
+    display: inline-block;
 }
 
 .navbar-collapse {

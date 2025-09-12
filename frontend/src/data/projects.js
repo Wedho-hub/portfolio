@@ -3,6 +3,8 @@
 
 import portfolioPic from '../assets/portfolioPic.png';
 import churchWebPic from '../assets/churchWebPic.png';
+import toolTrackPic from '../assets/toolTrackPic.png';
+import fogPic from '../assets/fogPic.png';
 
 const projects = [
   {
@@ -22,20 +24,20 @@ const projects = [
     github: 'https://github.com/Wedho-hub/churchSite',
   },
   {
-    title: 'Blog Platform',
-    description: 'A multi-user blog platform with markdown support, comments, and admin moderation.',
+    title: 'Tool Tracker',
+    description: 'A multi-user application to track and manage tools and equipment for teams. Features user roles, tool check-in/check-out, and reporting.',
     tech: ['React', 'Node.js', 'Express', 'MongoDB'],
-    image: 'https://placehold.co/400x250?text=Blog',
-    demo: 'https://your-blog-demo.com',
-    github: 'https://github.com/yourusername/blog',
+    image: toolTrackPic, 
+    demo: 'https://tooltracking.netlify.app/',
+    github: 'https://github.com/Wedho-hub/ToolTrack',
   },
   {
-    title: 'Task Manager App',
-    description: 'A productivity app for managing daily tasks, deadlines, and reminders. Mobile-friendly UI.',
-    tech: ['React', 'Bootstrap', 'Node.js'],
-    image: 'https://placehold.co/400x250?text=Task+Manager',
-    demo: 'https://your-taskmanager-demo.com',
-    github: 'https://github.com/yourusername/taskmanager',
+    title: 'FOG educare',
+    description: 'A marketing and online presence website for FOG educare, built with modern web technologies to showcase services and facilitate contact.',
+    tech: ['HTML', 'CSS', 'JavaScript'],
+    image: fogPic,
+    demo: 'https://fogeducare.netlify.app',
+    github: 'https://github.com/Wedho-hub/fogeducare',
   },
 ];
 

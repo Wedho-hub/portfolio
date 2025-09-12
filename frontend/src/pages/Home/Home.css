@@ -1,0 +1,80 @@
+
+/* Home Hero Section - Modern Theme */
+.home-hero-section {
+	padding-top: 6rem !important;
+	padding-bottom: 6rem !important;
+	background: linear-gradient(120deg, #181c24 60%, #ffb347 100%);
+}
+
+.hero-profile-pic {
+	max-width: 320px;
+	width: 100%;
+	margin-top: 2.5rem;
+	margin-bottom: 2.5rem;
+	object-fit: cover;
+	border: 5px solid #ffb347;
+	box-shadow: 0 4px 32px 0 rgba(255,179,71,0.12);
+}
+
+.stat-animate {
+	transition: box-shadow 0.3s, transform 0.3s;
+}
+.stat-animate:hover {
+	box-shadow: 0 8px 32px rgba(255,94,98,0.18);
+	transform: translateY(-4px) scale(1.04);
+}
+.letter-spacing-1 {
+	letter-spacing: 1px;
+}
+.stat-number {
+	font-variant-numeric: tabular-nums;
+}
+
+/* Hero Title Animation */
+.display-3, .display-3, .display-3 {
+	animation: heroPop 1.2s cubic-bezier(0.23, 1, 0.32, 1);
+	background: linear-gradient(90deg, #ff5e62 0%, #ffb347 100%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+		background-clip: text;
+	letter-spacing: 1.5px;
+}
+@keyframes heroPop {
+	0% { opacity: 0; transform: scale(0.8) translateY(40px); }
+	60% { opacity: 1; transform: scale(1.08) translateY(-8px); }
+	100% { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+/* Hero Buttons */
+.btn-primary, .btn-outline-secondary {
+	border-radius: 22px;
+	font-weight: 700;
+	font-size: 1.1rem;
+	letter-spacing: 0.5px;
+	transition: background 0.2s, color 0.2s, box-shadow 0.2s, transform 0.2s;
+}
+.btn-primary {
+	background: linear-gradient(90deg, #ff5e62 0%, #ffb347 100%);
+	border: none;
+	color: #23272f;
+	box-shadow: 0 2px 8px rgba(255,94,98,0.08);
+}
+.btn-primary:hover, .btn-primary:focus {
+	background: linear-gradient(90deg, #ffb347 0%, #ff5e62 100%);
+	color: #fff;
+	box-shadow: 0 6px 24px 0 rgba(255,179,71,0.18);
+	transform: translateY(-2px) scale(1.04);
+}
+.btn-outline-secondary {
+	border: 2px solid #ffb347;
+	color: #ffb347;
+	background: transparent;
+}
+.btn-outline-secondary:hover, .btn-outline-secondary:focus {
+	background: #ffb347;
+	color: #23272f;
+	border-color: #ffb347;
+	box-shadow: 0 6px 24px 0 rgba(255,179,71,0.18);
+	transform: translateY(-2px) scale(1.04);
+}
+

@@ -29,19 +29,18 @@ const AppNavbar = () => {
 	};
 
 	return (
-		<Navbar
-			expand="lg"
-			sticky="top"
-			className="shadow-sm custom-navbar"
-			style={{ background: 'linear-gradient(90deg, #434db8ff 0%, #7181efff 100%)', color: '#fff' }}
-			expanded={expanded}
-		>
+		   <Navbar
+			   expand="lg"
+			   sticky="top"
+			   className="shadow-sm custom-navbar"
+			   expanded={expanded}
+		   >
 			<Container>
 				{/* Brand/Logo */}
-				<Navbar.Brand as={Link} to="/" className="fw-bold logo d-flex align-items-center" onClick={handleNavClick}>
-					<img src={logo} alt="My Logo" width="64" height="64" style={{ marginRight: 12 }} />
-					<span className="d-none d-md-inline" style={{ color: '#fff', fontWeight: 700, fontSize: '1.7rem', letterSpacing: '2px' }}>MyPortfolio</span>
-				</Navbar.Brand>
+				   <Navbar.Brand as={Link} to="/" className="fw-bold logo d-flex align-items-center" onClick={handleNavClick}>
+					   <img src={logo} alt="My Logo" width="64" height="64" style={{ marginRight: 12, filter: 'drop-shadow(0 2px 8px #ffb347)' }} />
+					   <span className="d-none d-md-inline navbar-brand-gradient">MyPortfolio</span>
+				   </Navbar.Brand>
 				<Navbar.Toggle aria-controls="main-navbar-nav" onClick={() => setExpanded(exp => !exp)} />
 				<Navbar.Collapse id="main-navbar-nav">
 					<Nav className="ms-auto">

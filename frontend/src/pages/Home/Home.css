@@ -1,9 +1,11 @@
 
 /* Home Hero Section - Modern Theme */
+
 .home-hero-section {
 	padding-top: 6rem !important;
 	padding-bottom: 6rem !important;
-	background: linear-gradient(120deg, #181c24 60%, #ffb347 100%);
+	background: linear-gradient(120deg, #23272f 80%, #2d3748 100%);
+	color: #f3f6fa;
 }
 
 .hero-profile-pic {
@@ -31,13 +33,12 @@
 }
 
 /* Hero Title Animation */
-.display-3, .display-3, .display-3 {
+/* Hero Title Animation - now solid color for clarity */
+.display-3 {
 	animation: heroPop 1.2s cubic-bezier(0.23, 1, 0.32, 1);
-	background: linear-gradient(90deg, #ff5e62 0%, #ffb347 100%);
-	-webkit-background-clip: text;
-	-webkit-text-fill-color: transparent;
-		background-clip: text;
+	color: #ffb347;
 	letter-spacing: 1.5px;
+	text-shadow: 0 2px 12px rgba(255,179,71,0.10);
 }
 @keyframes heroPop {
 	0% { opacity: 0; transform: scale(0.8) translateY(40px); }

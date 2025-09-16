@@ -1,4 +1,16 @@
+
 import Blog from '../models/blog.js';
+// Utility to generate slug from title
+function slugify(text) {
+  return text
+    .toString()
+    .toLowerCase()
+    .trim()
+    .replace(/\s+/g, '-')           // Replace spaces with -
+    .replace(/[^a-z0-9\-]/g, '')    // Remove all non-alphanumeric except -
+    .replace(/-+/g, '-')             // Replace multiple - with single -
+    .replace(/^-+|-+$/g, '');        // Trim - from start/end
+}
 
 // Get all blogs
 export const getBlogs = async (req, res) => {
@@ -24,7 +36,15 @@ export const getBlogById = async (req, res) => {
 // Create new blog
 export const createBlog = async (req, res) => {
   try {
-    const newBlog = new Blog(req.body);
+    let { title, slug, ...rest } = req.body;
+    if (!slug || !slug.trim()) {
+      slug = slugify(title || '');
+    }
+    // Ensure slug is not empty after slugify
+    if (!slug) {
+      return res.status(400).json({ error: 'Slug could not be generated from title.' });
+    }
+    const newBlog = new Blog({ title, slug, ...rest });
     const savedBlog = await newBlog.save();
     res.status(201).json(savedBlog);
   } catch (err) {
@@ -35,7 +55,18 @@ export const createBlog = async (req, res) => {
 // Update blog
 export const updateBlog = async (req, res) => {
   try {
-    const updated = await Blog.findByIdAndUpdate(req.params.id, req.body, { new: true });
+    let { title, slug, ...rest } = req.body;
+    if (!slug || !slug.trim()) {
+      slug = slugify(title || '');
+    }
+    if (!slug) {
+      return res.status(400).json({ error: 'Slug could not be generated from title.' });
+    }
+    const updated = await Blog.findByIdAndUpdate(
+      req.params.id,
+      { title, slug, ...rest },
+      { new: true }
+    );
     if (!updated) return res.status(404).json({ error: 'Blog not found' });
     res.json(updated);
   } catch (err) {

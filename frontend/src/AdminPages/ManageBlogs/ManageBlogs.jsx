@@ -1,10 +1,12 @@
 // ManageBlogs.jsx
 // Admin page to manage blogs with add/edit/delete using Bootstrap modals
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const initialForm = { title: '', summary: '', content: '', author: '', image: '' };
 
 const ManageBlogs = () => {
+	const navigate = useNavigate();
 	const [blogs, setBlogs] = useState([]);
 	const [loading, setLoading] = useState(true);
 	const [showModal, setShowModal] = useState(false);
@@ -12,6 +14,7 @@ const ManageBlogs = () => {
 	const [form, setForm] = useState(initialForm);
 	const [selectedId, setSelectedId] = useState(null);
 	const [error, setError] = useState('');
+	// Removed unused tokenExpired state
 
 	// Fetch blogs from backend
 		const fetchBlogs = () => {
@@ -74,11 +77,44 @@ const ManageBlogs = () => {
 	};
 
 	// Add or update blog
+
+		// Delete blog
+		const handleDelete = async id => {
+			if (!window.confirm('Are you sure you want to delete this blog?')) return;
+			try {
+				const res = await fetch(`/api/admin/blogs/${id}`, {
+					method: 'DELETE',
+					headers: { Authorization: 'Bearer ' + localStorage.getItem('token') },
+				});
+				if (!res.ok) {
+					setError('Failed to delete blog');
+					return;
+				}
+				fetchBlogs();
+			} catch {
+				setError('Network error');
+			}
+		};
 	const handleSubmit = async e => {
 		e.preventDefault();
 		setError('');
-		const method = editMode ? 'PUT' : 'POST';
-		const url = editMode ? `/api/admin/blogs/${selectedId}` : '/api/admin/blogs';
+		// Client-side validation
+		if (!form.title.trim()) {
+			setError('Title is required.');
+			return;
+		}
+		if (!form.content.trim()) {
+			setError('Content is required.');
+			return;
+		}
+		let method, url;
+		if (editMode) {
+			method = 'PUT';
+			url = `/api/admin/blogs/${selectedId}`;
+		} else {
+			method = 'POST';
+			url = '/api/admin/blogs';
+		}
 		try {
 			const res = await fetch(url, {
 				method,
@@ -90,28 +126,30 @@ const ManageBlogs = () => {
 			});
 			if (!res.ok) {
 				const data = await res.json();
-				setError(data.error || 'Failed to save blog');
+				// Detect token expiration (401 with token error)
+				if (res.status === 401 && data.error && data.error.toLowerCase().includes('token')) {
+					setError('Session expired. Please log in again.');
+					setTimeout(() => {
+						localStorage.removeItem('token');
+						navigate('/login');
+					}, 2000);
+					return;
+				}
+				// Show detailed validation error if available (including Mongoose field errors)
+				if (data.error) {
+					// If error is an object with 'errors' (Mongoose validation)
+					if (typeof data.error === 'object' && data.error.errors) {
+						const details = Object.values(data.error.errors).map(e => e.message).join(' ');
+						setError(`Validation error: ${details}`);
+					} else {
+						setError(`Validation error: ${data.error}`);
+					}
+				} else {
+					setError('Failed to save blog. Please check all required fields.');
+				}
 				return;
 			}
 			closeModal();
-			fetchBlogs();
-		} catch {
-			setError('Network error');
-		}
-	};
-
-	// Delete blog
-	const handleDelete = async id => {
-		if (!window.confirm('Are you sure you want to delete this blog?')) return;
-		try {
-			const res = await fetch(`/api/admin/blogs/${id}`, {
-				method: 'DELETE',
-				headers: { Authorization: 'Bearer ' + localStorage.getItem('token') },
-			});
-			if (!res.ok) {
-				setError('Failed to delete blog');
-				return;
-			}
 			fetchBlogs();
 		} catch {
 			setError('Network error');
@@ -158,13 +196,19 @@ const ManageBlogs = () => {
 				<div className="modal fade show" style={{ display: 'block', background: 'rgba(0,0,0,0.3)' }} tabIndex="-1">
 					<div className="modal-dialog modal-lg">
 						<div className="modal-content">
+							{/* Move alert above modal-header for visibility */}
+							{error && (
+								<div className="alert alert-danger m-3 d-flex justify-content-between align-items-center" role="alert">
+									<span>{error}</span>
+									<button type="button" className="btn-close ms-2" aria-label="Close" onClick={() => setError('')}></button>
+								</div>
+							)}
 							<div className="modal-header">
 								<h5 className="modal-title">{editMode ? 'Edit Blog' : 'Add New Blog'}</h5>
 								<button type="button" className="btn-close" onClick={closeModal}></button>
 							</div>
 							<form onSubmit={handleSubmit}>
 								<div className="modal-body">
-									{error && <div className="alert alert-danger">{error}</div>}
 									<div className="mb-3">
 										<label className="form-label">Title</label>
 										<input type="text" className="form-control" name="title" value={form.title} onChange={handleChange} required />

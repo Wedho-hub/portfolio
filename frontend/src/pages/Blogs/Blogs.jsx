@@ -17,7 +17,7 @@ const Blogs = () => {
 	return (
 		<section className="container py-5">
 			<h2 className="mb-4 fw-bold text-center">Blogs</h2>
-			<div className="row">
+			<div className="blog-masonry-grid">
 				{blogs.length === 0 ? (
 					<p className="text-center">No blogs found.</p>
 				) : (

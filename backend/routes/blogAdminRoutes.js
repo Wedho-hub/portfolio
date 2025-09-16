@@ -12,7 +12,7 @@ import {
 // Zod schema for blog validation
 const blogSchema = z.object({
   title: z.string().min(1),
-  slug: z.string().min(1),
+  slug: z.string().optional(),
   summary: z.string().optional(),
   content: z.string().min(1),
   author: z.string().optional(),

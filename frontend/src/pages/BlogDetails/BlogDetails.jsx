@@ -29,7 +29,9 @@ const BlogDetails = () => {
 						<img src={blog.image} alt={blog.title} className="img-fluid rounded mb-4" />
 					)}
 					<h2 className="fw-bold mb-3">{blog.title}</h2>
-					<p className="lead">{blog.content}</p>
+					{blog.content && blog.content.split(/\n{2,}|\r?\n/).map((para, idx) => (
+						<p className="lead" key={idx} style={{textAlign: 'justify', marginBottom: '1.2em'}}>{para.trim()}</p>
+					))}
 					<small className="text-muted">{blog.date}</small>
 				</div>
 			</div>

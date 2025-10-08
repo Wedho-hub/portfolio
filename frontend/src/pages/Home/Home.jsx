@@ -5,7 +5,7 @@
 	import './Home.css';
 
 	const statsData = [
-		{ label: 'Months of Experience', value: 18 },
+		{ label: 'Years of Experience', value: 2 },
 		{ label: 'Projects', value: 10 },
 		{ label: 'Clients', value: 3 },
 		{ label: 'Certifications', value: 2 },

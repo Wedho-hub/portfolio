@@ -2,54 +2,48 @@
 /* Harmonized navlink styles for gradient navbar */
 
 
-/* Modern Navbar Theme */
 .custom-navbar {
-    background: linear-gradient(90deg, #181c24 60%, #ffb347 100%) !important;
-    color: #f3f6fa !important;
-    border-bottom: 2.5px solid #ffb347;
+    background: linear-gradient(90deg, rgba(16,24,32,0.85) 0%, rgba(13,24,28,0.9) 100%) !important;
+    color: var(--color-text) !important;
+    border-bottom: 1px solid rgba(255,255,255,0.03);
 }
 .custom-navbar .nav-link.nav-link-custom {
-    color: #f3f6fa !important;
-    font-weight: 900 !important;
-    font-size: 1.25rem !important;
-    margin-right: 1.2rem;
-    letter-spacing: 1px;
+    color: var(--color-text) !important;
+    font-weight: 700 !important;
+    font-size: 1.05rem !important;
+    margin-right: 0.8rem;
+    letter-spacing: 0.6px;
     transition: color 0.18s, background 0.18s, box-shadow 0.18s, transform 0.18s;
-    border-radius: 22px;
-    padding: 0.55rem 1.5rem;
-    position: relative;
-    outline: none;
+    border-radius: 12px;
+    padding: 0.45rem 1rem;
 }
 .custom-navbar .nav-link.nav-link-custom:active {
-    color: #ffb347 !important;
-    background: rgba(255, 179, 71, 0.13);
-    box-shadow: 0 2px 12px 0 rgba(255,179,71,0.12);
-    transform: scale(0.97);
+    color: var(--color-primary) !important;
+    background: rgba(20,184,166,0.08);
+    transform: scale(0.98);
 }
 .nav-link-custom:hover, .nav-link-custom:focus {
-    color: #ff5e62 !important;
-    background: rgba(255, 179, 71, 0.13);
+    color: var(--color-primary) !important;
+    background: rgba(20,184,166,0.06);
     text-decoration: none;
-    box-shadow: 0 4px 18px 0 rgba(255,94,98,0.18);
-    transform: translateY(-2px) scale(1.04);
+    box-shadow: 0 6px 20px var(--color-glow);
+    transform: translateY(-2px) scale(1.03);
 }
 .navbar-brand-gradient {
-    background: linear-gradient(90deg, #ff5e62 0%, #ffb347 100%);
+    background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-accent) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    font-weight: 700;
-    font-size: 1.7rem;
-    letter-spacing: 2px;
+    font-weight: 800;
+    font-size: 1.5rem;
+    letter-spacing: 1.6px;
     display: inline-block;
 }
-
 .navbar-collapse {
     background: transparent !important;
-    font-size: 1.2rem;
-    font-weight: 900;
+    font-size: 1rem;
+    font-weight: 700;
 }
-
 .logo {
     display: flex;
     align-items: center;

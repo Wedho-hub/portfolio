@@ -1,19 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@500;700&display=swap');
+@import './styles/backgrounds.css';
+
 :root {
   /* Typography */
   --font-sans: system-ui, Avenir, Helvetica, Arial, sans-serif;
   --base-line-height: 1.6;
   --base-weight: 400;
 
-  /* Color Palette (Neutral dark with teal accent) */
-  --color-bg: #0f1720;            /* page background */
-  --color-surface: #0b1220;       /* card, surface */
-  --color-muted: #94a3b8;         /* muted text */
-  --color-text: #e6eef8;          /* primary text */
-  --color-primary: #14b8a6;       /* teal */
-  --color-primary-600: #0ea58f;
-  --color-accent: #7c3aed;        /* purple accent */
-  --color-highlight: #06b6d4;     /* cyan highlight */
-  --color-glow: rgba(20,184,166,0.12);
+  /* Color Palette (Pleasant Navy Blue Theme) */
+  --color-bg: #0F1419;            /* deep charcoal navy background */
+  --color-surface: #1A1A1A;       /* dark gray for surfaces */
+  --color-muted: #A0A0A0;         /* light gray muted text for readability */
+  --color-text: #FFFFFF;          /* pure white text */
+  --color-primary: #1E90FF;       /* dodger blue for buttons and highlights */
+  --color-primary-600: #0066CC;
+  --color-accent: #00CED1;        /* dark turquoise accent */
+  --color-highlight: #1E90FF;     /* dodger blue highlight */
+  --color-glow: rgba(30,144,255,0.15); /* soft blue glow */
+  --color-on-primary: #FFFFFF;    /* white text on primary */
 
   /* UI */
   --radius-lg: 18px;
@@ -31,28 +35,45 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Fonts: heading and body. Inter for body, Poppins for headings. */
+:root {
+  --font-heading: 'Poppins', var(--font-sans);
+  --font-body: 'Inter', var(--font-sans);
+}
+
 /* Layout containers */
 #root, .container, section {
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding-left: 1rem;
-  padding-right: 1rem;
-}
+  :root {
+    /* Typography */
+    --font-sans: system-ui, Avenir, Helvetica, Arial, sans-serif;
+    --base-line-height: 1.6;
+    --base-weight: 400;
 
-/* Links */
-a {
-  font-weight: 500;
-  color: var(--color-primary);
-  text-decoration: none;
-}
-a:hover {
-  color: var(--color-primary-600);
-}
+  /* User-provided brand palette */
+  --color-bg: #0F1419;            /* Deep charcoal navy background */
+  --color-primary: #1E90FF;       /* Dodger blue - primary */
+  --color-muted: #A0A0A0;         /* Light gray - muted text */
+  --color-text: #FFFFFF;          /* Pure white - primary text */
+  --color-accent: #00CED1;        /* Dark turquoise for buttons/links */
+  --color-surface: rgba(255,255,255,0.05); /* subtle surface overlay */
+  --color-glow: rgba(30,144,255,0.15); /* soft glow from primary */
+  --color-on-primary: #FFFFFF;    /* white text on primary */
 
-/* Buttons */
-button {
-  border-radius: var(--radius-md);
+    /* UI */
+    --radius-lg: 18px;
+    --radius-md: 8px;
+
+    font-family: var(--font-sans);
+    line-height: var(--base-line-height);
+    font-weight: var(--base-weight);
+
+    color-scheme: dark;
+    color: var(--color-text);
+    background-color: var(--color-bg);
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
   border: 1px solid transparent;
   padding: 0.6em 1.2em;
   font-size: 1em;
@@ -75,4 +96,60 @@ button:focus-visible {
   :root {
     color-scheme: light;
   }
+}
+
+/* Background utility classes to replace Bootstrap bg-white */
+.bg-surface {
+  background: var(--color-surface) !important;
+  color: var(--color-text) !important;
+}
+.bg-surface-light {
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), var(--color-surface)) !important;
+  color: var(--color-text) !important;
+}
+
+/* Oblique decorative shapes and subtle animations */
+.oblique {
+  position: absolute;
+  pointer-events: none;
+  z-index: 0;
+  transform: skewY(-10deg);
+  opacity: 0.06;
+  background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+}
+
+.oblique--hero-top-left {
+  width: 520px;
+  height: 320px;
+  top: -40px;
+  left: -100px;
+}
+.oblique--hero-bottom-right {
+  width: 420px;
+  height: 260px;
+  bottom: -60px;
+  right: -80px;
+}
+.oblique--card { width: 200px; height: 120px; opacity: 0.04; }
+.oblique--footer { width: 360px; height: 180px; right: -40px; bottom: -60px; opacity: 0.045; }
+
+/* Animations */
+@keyframes subtleFloat {
+  0% { transform: translateY(0) skewY(-10deg); }
+  50% { transform: translateY(-6px) skewY(-9deg); }
+ 100% { transform: translateY(0) skewY(-10deg); }
+}
+@keyframes pulseGlow {
+  0% { box-shadow: 0 0 0 rgba(59,130,246,0.0); }
+  50% { box-shadow: 0 10px 40px rgba(59,130,246,0.06); }
+ 100% { box-shadow: 0 0 0 rgba(59,130,246,0.0); }
+}
+
+/* apply subtle animation for non-intrusive movement */
+.oblique.animated { animation: subtleFloat 6s ease-in-out infinite; }
+.glow-animated { animation: pulseGlow 5s ease-in-out infinite; }
+
+/* Respect user reduced-motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .oblique.animated, .glow-animated { animation: none !important; }
 }

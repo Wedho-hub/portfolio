@@ -8,7 +8,6 @@ import htmlLogo from '../../assets/html5.svg';
 import cssLogo from '../../assets/css.svg';
 import bootstrapLogo from '../../assets/bootstrap.svg';
 import gitLogo from '../../assets/git.svg';
-import viteLogo from '../../assets/vite.svg';
 // About.jsx
 // About me page using Bootstrap
 import React from 'react';
@@ -17,14 +16,14 @@ import { Link } from 'react-router-dom';
 const About = () => {
 	return (
 		<>
-			<section className="container py-5">
+			<section className="container py-5 bg-abstract-flow">
 				<div className="row justify-content-center align-items-center">
 					<div className="col-12 col-md-4 text-center mb-4 mb-md-0">
 						<img
 							src={profilePic}
 							alt="Profile"
 							className="img-fluid rounded-circle shadow-lg"
-							style={{ maxWidth: '180px', border: '5px solid #3949ab', objectFit: 'cover' }}
+							style={{ maxWidth: '180px', border: '5px solid var(--color-accent)', objectFit: 'cover' }}
 						/>
 					</div>
 					<div className="col-12 col-md-8">
@@ -47,7 +46,7 @@ const About = () => {
 			</section>
 
 			{/* Timeline Section */}
-			<section className="container py-5">
+			<section className="container py-5 bg-geometric-organic">
 				<h4 className="fw-bold text-center mb-5">My Journey</h4>
 				<div className="timeline-horizontal d-flex flex-nowrap overflow-auto pb-4">
 					{/* Timeline Items */}
@@ -87,32 +86,31 @@ const About = () => {
 					.timeline-dot { width: 24px; height: 24px; border-radius: 50%; margin: 0 auto; box-shadow: 0 2px 8px rgba(0,0,0,0.12); }
 					.timeline-bar { height: 6px; width: 100%; border-radius: 3px; margin: 0 auto; }
 					.timeline-item { position: relative; }
-					.timeline-item:not(:last-child) .timeline-bar { background: linear-gradient(90deg, #3949ab, #00bfae, #ffb300, #29b6f6, #e53935); }
+					.timeline-item:not(:last-child) .timeline-bar { background: linear-gradient(90deg, var(--color-accent), var(--color-primary)); }
 				`}</style>
 			</section>
 
 					{/* Tech Stack Section */}
-					<section className="py-4 bg-white border-top border-bottom">
+					<section className="py-4 bg-surface-light border-top border-bottom">
 						<div className="container text-center">
 							<h5 className="mb-4 fw-bold text-secondary">Technologies I Use</h5>
 							<div className="row justify-content-center g-3">
 								{[
-									{ src: reactLogo, label: 'React' },
-									{ src: nodeLogo, label: 'Node.js' },
-									{ src: expressLogo, label: 'Express.js' },
-									{ src: mongoLogo, label: 'MongoDB' },
-									{ src: jsLogo, label: 'JavaScript' },
-									{ src: htmlLogo, label: 'HTML5' },
-									{ src: cssLogo, label: 'CSS3' },
-									{ src: bootstrapLogo, label: 'Bootstrap' },
-									{ src: gitLogo, label: 'Git' },
-									{ src: viteLogo, label: 'Vite' },
+										{ src: reactLogo, label: 'React' },
+										{ src: nodeLogo, label: 'Node.js' },
+										{ src: expressLogo, label: 'Express.js' },
+										{ src: mongoLogo, label: 'MongoDB' },
+										{ src: jsLogo, label: 'JavaScript' },
+										{ src: htmlLogo, label: 'HTML5' },
+										{ src: cssLogo, label: 'CSS3' },
+										{ src: bootstrapLogo, label: 'Bootstrap' },
+										{ src: gitLogo, label: 'Git' },
 								].map((tech) => (
-									<div key={tech.label} className="col-4 col-sm-3 col-md-2 d-flex flex-column align-items-center">
-										<img src={tech.src} alt={tech.label} title={tech.label} style={{ height: 48, marginBottom: 8, filter: 'drop-shadow(0 2px 8px rgba(26,35,126,0.10))' }} />
-										<span className="small text-muted fw-semibold">{tech.label}</span>
-									</div>
-								))}
+												<div key={tech.label} className="col-4 col-sm-3 col-md-2 d-flex flex-column align-items-center">
+													<img src={tech.src} alt={tech.label} title={tech.label} style={{ height: 48, marginBottom: 8, filter: 'drop-shadow(0 2px 8px rgba(20,184,166,0.12))' }} />
+													<span className="small text-muted fw-semibold">{tech.label}</span>
+												</div>
+											))}
 							</div>
 						</div>
 					</section>

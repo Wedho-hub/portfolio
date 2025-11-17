@@ -3,11 +3,17 @@
 
 
 .home-hero-section {
-  padding-top: 5.5rem !important;
-  padding-bottom: 5.5rem !important;
-  background: linear-gradient(180deg, rgba(15,23,32,0.4), rgba(10,14,18,0.6));
-  color: var(--color-text);
+	padding-top: 5.5rem !important;
+	padding-bottom: 5.5rem !important;
+	/* Pleasant navy blue hero background */
+	background: linear-gradient(180deg, #0F1419 0%, rgba(15,20,25,0.95) 100%);
+	color: var(--color-text);
+	position: relative;
+	overflow: hidden;
 }
+
+/* ensure hero content sits above decorations */
+.home-hero-section > .container { position: relative; z-index: 5; }
 
 .hero-profile-pic {
   max-width: 320px;
@@ -15,16 +21,29 @@
   margin-top: 2rem;
   margin-bottom: 2rem;
   object-fit: cover;
-  border: 4px solid rgba(20,184,166,0.12);
-  box-shadow: 0 10px 36px rgba(7,18,24,0.6);
+  border: 4px solid rgba(30,144,255,0.15);
+  box-shadow: 0 10px 36px rgba(15,20,25,0.7);
+}
+
+/* Ensure hero image aligns right on large screens and stays centered on small screens */
+.home-hero-section .hero-profile-pic {
+	margin-left: auto;
+	margin-right: auto;
+}
+@media (min-width: 992px) {
+	.home-hero-section .hero-profile-pic {
+		margin-left: 0;
+		margin-right: 0;
+		max-width: 360px;
+	}
 }
 
 .stat-animate {
 	transition: box-shadow 0.3s, transform 0.3s;
 }
 .stat-animate:hover {
-	box-shadow: 0 8px 32px rgba(255,94,98,0.18);
-	transform: translateY(-4px) scale(1.04);
+  box-shadow: 0 8px 32px rgba(0,206,209,0.15);
+  transform: translateY(-4px) scale(1.04);
 }
 .letter-spacing-1 {
 	letter-spacing: 1px;
@@ -33,13 +52,42 @@
 	font-variant-numeric: tabular-nums;
 }
 
+/* Stats specific overrides to ensure visibility on theme backgrounds */
+.home-hero-section .stats-wrapper {
+	max-width: 720px;
+	margin-top: 0.6rem;
+}
+.home-hero-section .stat-number {
+	color: var(--color-primary) !important;
+	font-family: var(--font-heading);
+}
+.home-hero-section .stat-label {
+	color: var(--color-muted) !important;
+}
+
+/* Ensure lead and muted texts are visible against hero background */
+.home-hero-section .lead {
+	color: var(--color-text) !important;
+}
+.home-hero-section .text-muted {
+	color: var(--color-muted) !important;
+}
+
+/* Slightly smaller stat numbers for a compact section */
+.home-hero-section .display-6 {
+	font-size: 1.6rem;
+}
+
 /* Hero Title Animation */
 /* Hero Title Animation - now solid color for clarity */
 .display-3 {
-  animation: heroPop 1.2s cubic-bezier(0.23, 1, 0.32, 1);
-  color: var(--color-primary);
-  letter-spacing: 0.8px;
-  text-shadow: 0 2px 12px rgba(20,184,166,0.06);
+	animation: heroPop 1.2s cubic-bezier(0.23, 1, 0.32, 1);
+	color: var(--color-primary);
+	letter-spacing: 0.6px;
+	text-shadow: 0 2px 18px rgba(30,144,255,0.08);
+	font-family: var(--font-heading);
+	font-weight: 700;
+	line-height: 1.02;
 }
 @keyframes heroPop {
 	0% { opacity: 0; transform: scale(0.8) translateY(40px); }
@@ -56,27 +104,27 @@
 	transition: background 0.2s, color 0.2s, box-shadow 0.2s, transform 0.2s;
 }
 .btn-primary {
-	background: linear-gradient(90deg, #ff5e62 0%, #ffb347 100%);
+	background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-accent) 100%);
 	border: none;
-	color: #23272f;
-	box-shadow: 0 2px 8px rgba(255,94,98,0.08);
+	color: #fff;
+	box-shadow: 0 4px 12px rgba(2,6,23,0.18);
 }
 .btn-primary:hover, .btn-primary:focus {
-	background: linear-gradient(90deg, #ffb347 0%, #ff5e62 100%);
+	background: linear-gradient(90deg, var(--color-accent) 0%, var(--color-primary) 100%);
 	color: #fff;
-	box-shadow: 0 6px 24px 0 rgba(255,179,71,0.18);
+	box-shadow: 0 8px 30px rgba(30,144,255,0.15);
 	transform: translateY(-2px) scale(1.04);
 }
 .btn-outline-secondary {
-	border: 2px solid #ffb347;
-	color: #ffb347;
+	border: 2px solid var(--color-primary);
+	color: var(--color-primary);
 	background: transparent;
 }
 .btn-outline-secondary:hover, .btn-outline-secondary:focus {
-	background: #ffb347;
-	color: #23272f;
-	border-color: #ffb347;
-	box-shadow: 0 6px 24px 0 rgba(255,179,71,0.18);
+	background: var(--color-primary);
+	color: var(--color-on-primary);
+	border-color: var(--color-primary);
+	box-shadow: 0 6px 24px rgba(30,144,255,0.15);
 	transform: translateY(-2px) scale(1.04);
 }
 

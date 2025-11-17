@@ -5,6 +5,7 @@ import portfolioPic from '../assets/portfolioPic.png';
 import churchWebPic from '../assets/churchWebPic.png';
 import toolTrackPic from '../assets/toolTrackPic.png';
 import fogPic from '../assets/fogPic.png';
+import MaffyPic from '../assets/MaffyPic.png';
 
 const projects = [
   {
@@ -39,6 +40,14 @@ const projects = [
     demo: 'https://fogeducare.netlify.app',
     github: 'https://github.com/Wedho-hub/fogeducare',
   },
+    {
+    title: 'Maffy Online',
+    description: 'A marketing and online presence website for a "talent acquisition and HR solutions" company, built with modern web technologies to showcase services and facilitate contact. Enables user to blog and edit site content.',
+    tech: ['HTML', 'CSS', 'JavaScript', 'ReactJS', 'Node.js', 'MongoDB'],
+    image: MaffyPic,
+    demo: 'https://maffyonline.netlify.app',
+    github: 'https://github.com/Wedho-hub/maffyonline',
+  }
 ];
 
 export default projects;

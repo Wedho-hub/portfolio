@@ -3,9 +3,10 @@
 
 
 .custom-navbar {
-    background: linear-gradient(90deg, rgba(16,24,32,0.85) 0%, rgba(13,24,28,0.9) 100%) !important;
+    background-color: var(--color-bg) !important;
+    background-image: linear-gradient(90deg, rgba(18,18,18,0.88), rgba(18,18,18,0.96));
     color: var(--color-text) !important;
-    border-bottom: 1px solid rgba(255,255,255,0.03);
+    border-bottom: 1px solid rgba(59,130,246,0.06);
 }
 .custom-navbar .nav-link.nav-link-custom {
     color: var(--color-text) !important;
@@ -19,12 +20,12 @@
 }
 .custom-navbar .nav-link.nav-link-custom:active {
     color: var(--color-primary) !important;
-    background: rgba(20,184,166,0.08);
+    background: rgba(59,130,246,0.08);
     transform: scale(0.98);
 }
 .nav-link-custom:hover, .nav-link-custom:focus {
     color: var(--color-primary) !important;
-    background: rgba(20,184,166,0.06);
+    background: rgba(59,130,246,0.06);
     text-decoration: none;
     box-shadow: 0 6px 20px var(--color-glow);
     transform: translateY(-2px) scale(1.03);
@@ -38,6 +39,7 @@
     font-size: 1.5rem;
     letter-spacing: 1.6px;
     display: inline-block;
+    font-family: var(--font-heading);
 }
 .navbar-collapse {
     background: transparent !important;
@@ -48,7 +50,68 @@
     display: flex;
     align-items: center;
 }
-.logo img {
-    max-width: 100%;
-    height: auto;
+.logo-svg {
+    display: inline-block;
+    width: 64px;
+    height: 64px;
+    color: var(--color-primary);
+    flex-shrink: 0;
+    filter: drop-shadow(0 2px 8px rgba(59,130,246,0.12));
+}
+
+/* Make the hamburger / toggler visible against the dark navbar */
+.custom-navbar .navbar-toggler {
+    border-color: rgba(255,255,255,0.06);
+    color: var(--color-text);
+}
+.custom-navbar .navbar-toggler:focus {
+    box-shadow: 0 6px 20px rgba(59,130,246,0.08);
+}
+.custom-navbar .navbar-toggler-icon {
+    background-image: none; /* remove default icon so we can draw our own */
+    width: 28px;
+    height: 18px;
+    display: inline-block;
+    position: relative;
+}
+.custom-navbar .navbar-toggler-icon::before,
+.custom-navbar .navbar-toggler-icon::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: currentColor;
+    border-radius: 2px;
+}
+.custom-navbar .navbar-toggler-icon::before {
+    top: 0;
+    box-shadow: 0 8px 0 currentColor; /* middle and bottom bar via shadow */
+}
+.custom-navbar .navbar-toggler-icon::after {
+    bottom: 0;
+}
+
+/* Dropdown / Admin menu visibility on dark navbar */
+.custom-navbar .dropdown-toggle,
+.custom-navbar .nav-link,
+.custom-navbar .nav-link.nav-link-custom,
+.custom-navbar .nav-link:link,
+.custom-navbar .nav-link:visited {
+    color: var(--color-text) !important;
+}
+
+.custom-navbar .dropdown-menu {
+    background: var(--color-surface) !important;
+    border: 1px solid rgba(255,255,255,0.04);
+    box-shadow: 0 8px 30px rgba(2,6,23,0.6);
+}
+.custom-navbar .dropdown-item {
+    color: var(--color-text) !important;
+    font-weight: 600;
+}
+.custom-navbar .dropdown-item:hover,
+.custom-navbar .dropdown-item:focus {
+    background: rgba(59,130,246,0.06) !important;
+    color: var(--color-primary) !important;
 }
